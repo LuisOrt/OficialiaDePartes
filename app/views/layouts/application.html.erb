@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Oficialia de partes (INE)</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <img src="ine.png" alt="logo ine" width="200"> 
+  <div>
+    <% if signed_in? -%>
+      <div>
+        Usuario: <strong><%= current_user.email %>
+      </div>
+      <%= link_to " Cerrar sesion", sign_out_path, method: :delete %></strong><br>
+      <%link_to "make_dmin", user_path(current_user),method: :patch, class: 'btn btn-info' %>
+    <% end %>
+  </div>
+  <div id="flash">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+      <%= value %></div>
+    <% end %>
+  </div>
+  <table>
+    <tr>
+    <th valign="top" bgcolor=#C33B83 width="100"><br><br><%= link_to 'HOME', root_path %></th>
+    <th align="justify" bgcolor=#DEDEDE><%= yield %></th> 
+  </tr>
+
+  </table>
+     
+</body>
+</html>

@@ -1,0 +1,2 @@
+json.extract! registro, :id, :Folio, :Soporte, :No_Referencia, :Fecha_Recepcion, :Fecha_documento, :Destinatario, :Remitente, :Asunto, :Se_Turno_A, :Documento, :Anexos, :Instruccion, :Fecha_Limite, :User, :created_at, :updated_at
+json.url registro_url(registro, format: :json)

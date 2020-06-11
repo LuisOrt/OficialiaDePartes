@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Numeros De Oficios</h1>
+
+<table>
+  <thead>
+    <tr bgcolor=#C33B83>
+      <th>No de oficio</th>
+      <th>Departamento</th>
+      <th>Proposito</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @no_de_oficios.each do |no_de_oficio| %>
+      <% if no_de_oficio.Departamento == current_user.email || current_user.departamento.nombre == no_de_oficio.Departamento || current_user.admin? %>
+        <tr>
+          <td>INE/JLE-DGO/<%= no_de_oficio.Folio %>/2019</td>
+          <td><%= no_de_oficio.Departamento %></td>
+          <td><%= no_de_oficio.Proposito %></td>
+          <td><%= link_to 'Mostrar', no_de_oficio %></td>
+          <% if current_user.admin? %>
+            <td><%= link_to 'Editar', edit_no_de_oficio_path(no_de_oficio) %></td>
+          <% end %>
+          <% if current_user.admin? %>
+            <td><%= link_to 'Eliminar', no_de_oficio, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'HOME', root_path %>
+<%= link_to 'Nuevo No De Oficio', new_no_de_oficio_path %>
+<a href="/no_de_oficios.csv">Descargar</a>

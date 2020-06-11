@@ -1,0 +1,47 @@
+<h1>Usuarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Departamento</th>
+      <th></th>
+      <th>Correo</th>
+      <th>Rol</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.each do |x| %>
+      <tr>
+      <% if x.departamento == nil %>
+        <td> <%=link_to 'Asignar', new_departamento_path() %></td>
+        <td></td>
+      <% else %>
+        <td><%= x.departamento.nombre %>
+        <td><%= link_to 'Editar', edit_departamento_path(x.departamento) %></td>
+        </td>
+      <% end %>
+        <td><%= x.email %></td>
+
+        <td>
+          <% if x.admin & x.oficialia %>
+             <%='Desconocido'%>
+          <% elsif x.admin & !x.oficialia %>
+            <%='Administrador'%>
+          <% elsif !x.admin & x.oficialia %>
+            <%='Oficial de partes'%>
+          <% elsif !x.admin & !x.oficialia %>
+            <%='Departamento'%>
+          <% end %>
+        </td>
+        <td><%= link_to 'cambiar tipo de cuenta', user_path(x), method: :patch, class: 'btn btn-info',data: { confirm: 'Estas seguro?' } %></td>
+        <td><%= link_to 'Eliminar Usuario', x, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<a href="/">HOME</a>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  No_de_Correo: MyText
+  Departamento: MyString
+  Proposito: MyText
+
+two:
+  No_de_Correo: MyText
+  Departamento: MyString
+  Proposito: MyText

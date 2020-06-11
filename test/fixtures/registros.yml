@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Folio: 1
+  Soporte: MyString
+  No_Referencia: MyString
+  Fecha_Recepcion: 2017-01-27 12:43:05
+  Fecha_documento: 2017-01-27
+  Destinatario: MyString
+  Remitente: MyString
+  Asunto: MyText
+  Se_Turno_A: MyString
+  Documento: 1
+  Anexos: 1
+  Instruccion: MyString
+  Fecha_Limite: 2017-01-27
+
+two:
+  Folio: 1
+  Soporte: MyString
+  No_Referencia: MyString
+  Fecha_Recepcion: 2017-01-27 12:43:05
+  Fecha_documento: 2017-01-27
+  Destinatario: MyString
+  Remitente: MyString
+  Asunto: MyText
+  Se_Turno_A: MyString
+  Documento: 1
+  Anexos: 1
+  Instruccion: MyString
+  Fecha_Limite: 2017-01-27

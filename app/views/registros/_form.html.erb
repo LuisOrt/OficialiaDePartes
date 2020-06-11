@@ -1,0 +1,97 @@
+<%= form_for(registro) do |f| %>
+  <% if registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(registro.errors.count, "error") %> prohibited this registro from being saved:</h2>
+
+      <ul>
+      <% registro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if current_user.oficialia? && Registro.last.eql?(nil) %>
+  <div class="field">
+    <%= f.label :Folio %>
+    <%= f.number_field :Folio %>
+  </div>
+  <% else%>
+  <div class="field">
+    <%= f.number_field :Folio, :value => (Registro.last.eql?(nil)) ? 1 : (Registro.last.Folio)+1, :readonly => true %>
+  </div>
+  <% end%>
+
+  <div class="field">
+    <%= f.label :Soporte %>
+    <%= f.select :Soporte, ['Oficio', 'Circular','Correspondencia', 'Correo Electronico', 'Documentos']%>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :No_Referencia %>
+    <%= f.text_field :No_Referencia %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :Fecha_Recepcion, :value => (Time.now ) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Fecha_documento %>
+    <%= f.date_select :Fecha_documento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Destinatario %>
+    <%= f.text_field :Destinatario %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Remitente %>
+    <%= f.text_field :Remitente %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Asunto %>
+    <%= f.text_area :Asunto %>
+  </div>
+  <div class="field">
+    <%= f.label :Se_Turno_A %>
+    <% x= Departamento.pluck(:nombre) %>
+    <%= f.select :Se_Turno_A, x %>
+  </div>
+  <div>
+  <h2>Total de Hojas</h2>
+  </div>
+  <div class="field">
+    <%= f.label :Documento %>
+    <%= f.number_field :Documento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Anexos %>
+    <%= f.number_field :Anexos %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Instruccion %>
+    <%= f.text_area :Instruccion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Fecha_Limite %>
+    <%= f.date_select :Fecha_Limite %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :User, :value => (current_user.id) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <div>
+      <a href="/">HOME</a>
+  </div>
+<% end %>

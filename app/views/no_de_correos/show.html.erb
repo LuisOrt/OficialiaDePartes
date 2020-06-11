@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Departamento:</strong>
+  <%= @no_de_correo.Departamento %>
+</p>
+
+<p>
+  <strong>No de Correo:</strong>
+   <h2>
+         INE/JLE-DGO/VRFE/ <%= NoDeCorreo.last.No_de_Correo%>/2020
+  </h2>
+</p>
+
+<p>
+  <strong>Proposito:</strong>
+  <%= @no_de_correo.Proposito %>
+</p>
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_no_de_correo_path(@no_de_correo) %> |
+<%end%>
+<%= link_to 'HOME', root_path %>

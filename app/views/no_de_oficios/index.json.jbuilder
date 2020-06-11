@@ -1,0 +1,1 @@
+json.array! @no_de_oficios, partial: 'no_de_oficios/no_de_oficio', as: :no_de_oficio

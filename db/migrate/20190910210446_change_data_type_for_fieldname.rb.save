@@ -1,0 +1,7 @@
+class ChangeDataTypeForFieldname < ActiveRecord::Migration[5.0]
+  def self.up
+	change_table :No_de_Correos do |t|
+	t.change :No_de_Correo, :string
+  end
+end
+def

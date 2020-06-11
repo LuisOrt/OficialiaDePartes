@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Departamento:</strong>
+  <%= @no_de_oficio.Departamento %>
+</p>
+
+<p>
+  <strong>No de Oficio:</strong>
+  
+  <h2>
+  	 INE/JLE-DGO/VRFE/ <%= NoDeOficio.last.Folio%>/2020
+  </h2>
+</p>
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_no_de_oficio_path(@no_de_oficio) %> |
+<%end%>
+<%= link_to 'HOME', root_path %>

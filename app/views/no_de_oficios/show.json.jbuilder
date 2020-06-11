@@ -1,0 +1,1 @@
+json.partial! "no_de_oficios/no_de_oficio", no_de_oficio: @no_de_oficio
